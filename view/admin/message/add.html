@@ -1,0 +1,112 @@
+<!--内容开始-->
+<section class="content">
+    <div class="search">
+        <form class="form-inline" action="">
+            <a class="btn btn-flat btn-primary m_10" href="{:url('index')}">显示全部</a>
+            <a class="btn btn-flat btn-success m_10 f_r m_t_5" onclick="javascript :history.back(-1)"><i
+                    class="fa fa-undo m-r-10"></i>返 回</a>
+        </form>
+    </div>
+    <!--数据表开始-->
+    {if $info}
+    <form method="post" action="{:url('editPost')}">
+        <input type="hidden" name="id" value="{$info.id}"/>
+    {else /}
+    <form method="post" action="{:url('addPost')}">
+    {/if}
+        <!---->
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="box box-body">
+                    <!---->
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <label class="col-xs-4 col-sm-2 col-md-2 col-lg-1 control-label dd_input_l">标题</label>
+                            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+                                <input type="text" name="title" class="form-control" placeholder=""
+                                       value="{$info.title}">
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <!---->
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <div class="col-xs-11 col-sm-8 col-md-6 col-lg-5">
+                                <label class="text-lable">内容</label>
+                                <textarea class="form-control" name="content" rows="3" placeholder="请输入内容">{$info.content}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <label class="col-xs-4 col-sm-2 col-md-2 col-lg-1 control-label dd_input_l">姓名</label>
+                            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+                                <input type="text" name="name" class="form-control" placeholder=""
+                                       value="{$info.name}">
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <label class="col-xs-4 col-sm-2 col-md-2 col-lg-1 control-label dd_input_l">电话</label>
+                            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+                                <input type="text" name="phone" class="form-control" placeholder=""
+                                       value="{$info.phone}">
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <label class="col-xs-4 col-sm-2 col-md-2 col-lg-1 control-label dd_input_l">邮箱</label>
+                            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+                                <input type="text" name="email" class="form-control" placeholder=""
+                                       value="{$info.email}">
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <label class="col-xs-4 col-sm-2 col-md-2 col-lg-1 control-label dd_input_l">IP</label>
+                            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+                                <input type="text" name="ip" class="form-control" placeholder=""
+                                       value="{$info.ip}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <label class="col-xs-4 col-sm-2 col-md-2 col-lg-1 control-label dd_input_l">备注</label>
+                            <div class="col-xs-7 col-sm-6 col-md-4 col-lg-4">
+                                <input type="text" name="remark" class="form-control" placeholder=""
+                                       value="{$info.remark}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row dd_input_group">
+                        <div class="form-group">
+                            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-5 text-center">
+                                <button type="submit" class="btn btn-flat btn-primary ">提 交</button>
+                                <button type="button" class="btn btn-flat btn-default"
+                                        onclick="javascript :history.back(-1)">返 回
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+    </form>
+    <!--数据表结束-->
+</section>
+<!--内容结束-->
+
+<script type="text/javascript">
+    webupload('fileList_image', 'filePicker_image', 'image_preview', 'logo');
+</script>

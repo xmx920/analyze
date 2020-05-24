@@ -1,0 +1,49 @@
+<?php
+/**
+ * | 登录制器
+ */
+namespace app\admin\controller;
+
+use app\admin\model\Admin;
+use app\common\model\System;
+
+use think\captcha\facade\Captcha;
+use think\facade\Request;
+use think\facade\Session;
+use think\facade\View;
+
+class Login
+{
+    // 登录页面
+    public function index()
+    {
+        //查找所有系统设置表数据
+        $system = System::getListField()->toArray();
+        //格式化设置字段
+        $system = sysgem_setup($system);
+        $systemArr = [];
+        foreach ($system as $k => $v) {
+            $systemArr[$v['field']] = $v['value'];
+        }
+        $view['mobile'] = Request::isMobile();
+        $view['system'] = $systemArr;
+        View::assign($view);
+        return View::fetch();
+    }
+
+    // 校验登录
+    public function checkLogin(){
+        return Admin::checkLogin();
+    }
+
+    // 验证码
+    public function captcha(){
+        return Captcha::create();
+    }
+
+    // 退出登录
+    public function logout(){
+        Session::delete('admin');
+        return redirect('login/index');
+    }
+}
