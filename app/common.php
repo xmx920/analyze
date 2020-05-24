@@ -645,5 +645,20 @@ function list_to_tree($list, $pk = 'id', $pid = 'pid', $child = 'child', $root =
     return $tree;
 }
 
+function curl_get($url){
+    $ch  = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    // 设置cURL 参数，要求结果保存到字符串中还是输出到屏幕上。
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    //是否获得跳转后的页面
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    return $data;
+}
+
+
+
+
 
 
