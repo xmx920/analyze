@@ -62,8 +62,7 @@ class User extends Base
                 }
             }
             //校验用户名密码
-            $user = Users::
-                where('email|mobile',$username)
+            $user = Users::where('email|mobile',$username)
                 ->where('password',md5($password))
                 ->find();
             if (empty($user)) {
